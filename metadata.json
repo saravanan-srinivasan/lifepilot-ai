@@ -1,0 +1,6 @@
+{
+  "name": "LifePilot AI",
+  "description": "An emotionally intelligent AI life operating system that helps humans solve life problems, optimize routines, manage goals, and track transformation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,1144 @@
+{
+  "guest@lifepilot.ai": {
+    "user": {
+      "id": "173b4de0-595d-4e63-840b-4d67836a5c93",
+      "name": "Guest Pilot",
+      "email": "guest@lifepilot.ai",
+      "passwordHash": "",
+      "role": "Free User",
+      "xpPoints": 1500,
+      "coachPersona": "ora",
+      "focusArea": "Routine deconstruction",
+      "energyState": "Stable",
+      "discipline": 75,
+      "joinedAt": "2026-05-26T12:28:44.935Z",
+      "lifeAreaScores": {
+        "life": 50,
+        "focus": 92,
+        "discipline": 78,
+        "energy": 65,
+        "finance": 74
+      }
+    },
+    "missions": [
+      {
+        "id": "m1",
+        "text": "Complete 25-minute focus session",
+        "val": 150,
+        "category": "focus",
+        "completed": true
+      },
+      {
+        "id": "m2",
+        "text": "Take a mid-day calm breathing break",
+        "val": 100,
+        "category": "clarity",
+        "completed": false
+      },
+      {
+        "id": "m3",
+        "text": "Review your daily budget list",
+        "val": 80,
+        "category": "finance",
+        "completed": false
+      },
+      {
+        "id": "m4",
+        "text": "Study new skills for 15 minutes",
+        "val": 120,
+        "category": "learning",
+        "completed": false
+      }
+    ],
+    "journeys": [
+      {
+        "id": "escape-procrastination",
+        "title": "Clarity Alignment",
+        "desc": "Deconstruct starting hesitation and configure private space parameters designed to build focus.",
+        "xp": 1500,
+        "streak": 12,
+        "level": 3,
+        "unlocked": true,
+        "missions": [
+          {
+            "id": "ep1",
+            "text": "Initiate with a simple 5-minute sandbox task",
+            "xp": 300,
+            "completed": true
+          },
+          {
+            "id": "ep2",
+            "text": "Configure monomode physical limits (disable hardware notifications)",
+            "xp": 400,
+            "completed": false
+          },
+          {
+            "id": "ep3",
+            "text": "Pre-load next day's 3 priority contexts the night before",
+            "xp": 500,
+            "completed": false
+          }
+        ]
+      },
+      {
+        "id": "productivity-reset",
+        "title": "Cognitive Reboot",
+        "desc": "Re-anchor focus stamina by shifting from fragmented multitasking cycles to singular deep intervals.",
+        "xp": 2200,
+        "streak": 8,
+        "level": 4,
+        "unlocked": true,
+        "missions": [
+          {
+            "id": "pr1",
+            "text": "Schedule a singular 90-minute monomode block",
+            "xp": 450,
+            "completed": false
+          },
+          {
+            "id": "pr2",
+            "text": "Integrate a 10-minute quiet non-stimulus walk",
+            "xp": 350,
+            "completed": false
+          },
+          {
+            "id": "pr3",
+            "text": "Flush active cognitive baggage by clearing secondary context tabs",
+            "xp": 300,
+            "completed": false
+          }
+        ]
+      },
+      {
+        "id": "rebuild-my-life",
+        "title": "System Restoration",
+        "desc": "Restore daily sleep consistency, weekly micro-budgets, and balanced cardiovascular routines.",
+        "xp": 4500,
+        "streak": 5,
+        "level": 5,
+        "unlocked": true,
+        "missions": [
+          {
+            "id": "rl1",
+            "text": "Establish sleep boundaries (stabilize sleep window under 11:00 PM)",
+            "xp": 600,
+            "completed": false
+          },
+          {
+            "id": "rl2",
+            "text": "Register and categorize all active weekly outflows",
+            "xp": 500,
+            "completed": false
+          },
+          {
+            "id": "rl3",
+            "text": "Restore regular cardiorespiratory threshold focus (30m training)",
+            "xp": 450,
+            "completed": false
+          }
+        ]
+      },
+      {
+        "id": "become-disciplined",
+        "title": "Sustained Volition",
+        "desc": "Amplify volitional starting capacity and build lasting cognitive habits under stress.",
+        "xp": 3000,
+        "streak": 15,
+        "level": 6,
+        "unlocked": false,
+        "missions": [
+          {
+            "id": "bd1",
+            "text": "Couple morning hydration directly to a review sequence",
+            "xp": 500,
+            "completed": false
+          },
+          {
+            "id": "bd2",
+            "text": "Integrate a 60-second immediate cold immersion sequence",
+            "xp": 600,
+            "completed": false
+          }
+        ]
+      }
+    ],
+    "focusLogs": [
+      {
+        "id": "fl1",
+        "timestamp": "2026-05-26T11:28:44.937Z",
+        "duration": 1500,
+        "mode": "focus",
+        "sound": "binaural"
+      }
+    ],
+    "accountabilityLogs": [
+      {
+        "id": "al1",
+        "timestamp": "2026-05-25T12:28:44.937Z",
+        "sleepRating": 80,
+        "routineAlignment": 75,
+        "monomodeCompletion": 60,
+        "notes": "I managed my focus blocks well, but had some phone notification disruptions in the afternoon.",
+        "coachFeedback": "Excellent stability on routine alignments. Ensure hardware notification switches are toggled before your next monomode sequence."
+      }
+    ],
+    "chats": [
+      {
+        "id": "welcome-ai",
+        "sender": "ai",
+        "text": "I am your alignment advisor. Let's examine the conditions surrounding your focus or routine plateaus. Share the obstacle you are facing today, and we will formulate a simple, low-friction adjustment logic.",
+        "timestamp": "READY"
+      },
+      {
+        "id": "msg-user-1779798871354",
+        "sender": "user",
+        "text": "i am feeling headache now",
+        "timestamp": "06:04 pm"
+      },
+      {
+        "id": "msg-ai-1779798871354",
+        "sender": "ai",
+        "text": "Oh, I'm so sorry you're dealing with a headache right now. Let's take a gentle pause together. Soften your shoulders, let go of any pressure to be productive, and take a slow, deep breath in... and slowly let it out. Your well-being is always the foundation of any routine we build. Let's put the planning on a tiny hold and focus on soothing your body first. You're doing wonderfully, and it is completely okay to rest.",
+        "timestamp": "06:04 pm",
+        "analysis": {
+          "rootCause": "Sensory and Physical Strain",
+          "riskLevels": [
+            {
+              "factor": "Mental Friction",
+              "scale": 65,
+              "color": "purple"
+            },
+            {
+              "factor": "Sensory Fatigue",
+              "scale": 70,
+              "color": "cyan"
+            }
+          ],
+          "actionItems": [
+            "Close your eyes and take 5 slow, deep breaths, letting your shoulders drop completely.",
+            "Drink a full glass of cool water slowly to hydrate your nervous system.",
+            "Dim your screen brightness and rest your eyes in a quiet space for 10 minutes."
+          ],
+          "timeframeEstimation": "10 to 15 minutes of quiet rest"
+        }
+      },
+      {
+        "id": "msg-user-1779798904389",
+        "sender": "user",
+        "text": "i am feeling headache now",
+        "timestamp": "06:05 pm"
+      },
+      {
+        "id": "msg-ai-1779798904389",
+        "sender": "ai",
+        "text": "# Hello, breathe in slowly with me...\n\nTake a deep, soft breath in for four seconds, hold it gently, and let it out like a quiet sigh. I hear you, and it is completely okay to pause right now. A headache is your body's kind way of asking you to soften your focus. When we try to deconstruct our routines and plan our lives, our minds can sometimes tighten up with tension.\n\nLet us put all the heavy planning aside for a moment. You do not have to figure out your entire routine today. Your discipline is already wonderfully strong at 75/100, which means your structure is safe. Right now, your only job is to care for yourself. Let us gently quiet the noise.",
+        "timestamp": "06:05 pm",
+        "analysis": {
+          "rootCause": "Tension Overload",
+          "riskLevels": [
+            {
+              "factor": "Physical Sensory Strain",
+              "scale": 75,
+              "color": "purple"
+            },
+            {
+              "factor": "Cognitive Over-processing",
+              "scale": 55,
+              "color": "cyan"
+            }
+          ],
+          "actionItems": [
+            "Drink a warm glass of water or herbal tea and close your eyes for just five minutes.",
+            "Gently massage your temples and the back of your neck in slow, circular motions.",
+            "When you feel ready, write down just one tiny routine change instead of trying to fix the whole day."
+          ],
+          "timeframeEstimation": "15 to 30 minutes of quiet rest"
+        }
+      },
+      {
+        "id": "msg-user-1779804120818",
+        "sender": "user",
+        "text": "hi i am facing headache now",
+        "timestamp": "07:32 pm"
+      },
+      {
+        "id": "msg-ai-1779804120821",
+        "sender": "ai",
+        "text": "Oh, I am so sorry you are dealing with a headache right now. Let us pause everything else. Your routine can wait — right now, your comfort is the only thing that matters. Let us take a soft, deep breath together... breathe in gently for four seconds... and let it out like a quiet sigh. Today, we are going to make things incredibly tiny and gentle for you. No pressure, no big tasks. Just simple, soft steps to help you recover. Please dim your screen, rest your eyes, and let your shoulders drop down away from your ears. You are doing wonderfully, and it is completely okay to just rest.",
+        "timestamp": "07:32 pm",
+        "analysis": {
+          "rootCause": "Sensory Strain",
+          "riskLevels": [
+            {
+              "factor": "Physical Tension",
+              "scale": 80,
+              "color": "cyans"
+            },
+            {
+              "factor": "Cognitive Overdrive",
+              "scale": 60,
+              "color": "purples"
+            }
+          ],
+          "actionItems": [
+            "Close your eyes and gently rest your head back for three quiet minutes.",
+            "Sip a cup of cool or warm water very slowly.",
+            "Postpone all routine planning until the pressure lifts completely."
+          ],
+          "timeframeEstimation": "Within 15 to 20 minutes of resting your eyes"
+        }
+      },
+      {
+        "id": "msg-user-fb-1779804743485",
+        "sender": "user",
+        "text": "hi i am facing headache now",
+        "timestamp": "NOW"
+      },
+      {
+        "id": "msg-ai-fb-1779804743485",
+        "sender": "ai",
+        "text": "I detect typical habits and focus loops that are temporarily distracting you from your goals. Let's work together to make things much easier and clearer.",
+        "timestamp": "NOW",
+        "analysis": {
+          "rootCause": "Dopamine & Distraction Trap",
+          "riskLevels": [
+            {
+              "factor": "Mental Tiredness",
+              "scale": 75,
+              "color": "purple"
+            },
+            {
+              "factor": "Choosing Short-term Fun Over Long-term Goals",
+              "scale": 85,
+              "color": "indigo"
+            },
+            {
+              "factor": "Phone & Notification Distractions",
+              "scale": 65,
+              "color": "cyan"
+            }
+          ],
+          "actionItems": [
+            "Work in a single 25-minute focused slot: turn off your immediate phone notifications.",
+            "Prepare your study or work materials the night before to reduce starting friction.",
+            "Take a short 5-minute break to sit quietly and rest your mind before jumping in."
+          ],
+          "timeframeEstimation": "48 Hours to feel much clearer and regain control."
+        }
+      },
+      {
+        "id": "msg-user-1779804773894",
+        "sender": "user",
+        "text": "hello ",
+        "timestamp": "07:42 pm"
+      },
+      {
+        "id": "msg-ai-1779804773894",
+        "sender": "ai",
+        "text": "Hello there, sweet soul. I am so glad you reached out today. Take a soft, deep breath with me right now—inhale gently for four seconds, hold it lightly, and let it out slowly. We are going to look at your daily routines not as rigid rules to follow, but as a gentle river that should support you. Together, we will gently deconstruct any habits that feel heavy, making them incredibly small, soft, and easy to carry. You are doing wonderfully, and your stable energy is a beautiful foundation for us to build upon.",
+        "timestamp": "07:42 pm",
+        "analysis": {
+          "rootCause": "Routine Friction",
+          "riskLevels": [
+            {
+              "factor": "Subconscious Resistance",
+              "scale": 45,
+              "color": "purple"
+            },
+            {
+              "factor": "Decision Fatigue",
+              "scale": 30,
+              "color": "cyan"
+            }
+          ],
+          "actionItems": [
+            "Take three slow, deep breaths right now, letting your shoulders drop completely.",
+            "Identify just one tiny step in your daily sequence that feels slightly heavy.",
+            "Permit yourself to simplify or completely skip that single step tomorrow morning."
+          ],
+          "timeframeEstimation": "Within 24 hours of your first gentle pause"
+        }
+      },
+      {
+        "id": "msg-user-fb-1779804789780",
+        "sender": "user",
+        "text": "I struggle with starting key tasks",
+        "timestamp": "NOW"
+      },
+      {
+        "id": "msg-ai-fb-1779804789780",
+        "sender": "ai",
+        "text": "Procrastination represents starting avoidance rather than an index of laziness. Let's bypass the overthinking loops completely with an ultra-short 5-minute sandbox focus frame.",
+        "timestamp": "NOW",
+        "analysis": {
+          "rootCause": "Anxiety Avoidance Reflex",
+          "riskLevels": [
+            {
+              "factor": "Starting Friction",
+              "scale": 90,
+              "color": "purple"
+            },
+            {
+              "factor": "Task Complexity Sensation",
+              "scale": 75,
+              "color": "cyan"
+            }
+          ],
+          "actionItems": [
+            "Open the task context immediately and leave it blank.",
+            "Clear all notification bubbles or distractions.",
+            "Launch a 5-minute timer and write freely without self-critique."
+          ],
+          "timeframeEstimation": "24 Hours to break starting blockers."
+        }
+      },
+      {
+        "id": "msg-user-1779805257176",
+        "sender": "user",
+        "text": "I struggle with starting key tasks",
+        "timestamp": "07:50 pm"
+      },
+      {
+        "id": "msg-ai-1779805257208",
+        "sender": "ai",
+        "text": "It's completely understandable to struggle with starting key tasks, especially when they seem daunting. Let's take a gentle breath in, and as we exhale, allow any tension to release. Imagine yourself breaking down these tasks into smaller, manageable pieces. This will help make them feel less overwhelming. Remember, the goal is to make progress, not to tackle everything at once. By focusing on one small step at a time, you'll build momentum and confidence. As you begin, take a moment to acknowledge your discipline index of 75/100 - this is a great foundation to work from. With stable energy levels, you're well-equipped to tackle these tasks. Let's work together to create a routine that supports your goals and helps you stay on track.",
+        "timestamp": "07:50 pm",
+        "analysis": {
+          "rootCause": "Procrastination",
+          "riskLevels": [
+            {
+              "factor": "Task Intimidation",
+              "scale": 80,
+              "color": "red"
+            },
+            {
+              "factor": "Lack of Clear Goals",
+              "scale": 40,
+              "color": "blue"
+            }
+          ],
+          "actionItems": [
+            "Identify and write down the key tasks that need attention",
+            "Break down each task into smaller, actionable steps",
+            "Commit to starting with the smallest step for one task, and dedicate a specific time slot to it"
+          ],
+          "timeframeEstimation": "Within the next 3-5 days, you should start to notice a shift in your ability to initiate tasks"
+        }
+      },
+      {
+        "id": "msg-user-1779805405460",
+        "sender": "user",
+        "text": "I struggle to focus",
+        "timestamp": "07:53 pm"
+      },
+      {
+        "id": "msg-ai-1779805405461",
+        "sender": "ai",
+        "text": "I completely understand that you're struggling to focus, and it's great that you're acknowledging this challenge. Let's break it down together. Firstly, take a gentle breath in, and as you exhale, allow any tension to release from your body. It's essential to recognize that your discipline index is at 75, which is a wonderful foundation to build upon. Now, let's explore the concept of routine deconstruction. This process involves dissecting your daily habits and identifying areas where you can simplify and create a more focused environment. To begin, take a few moments to reflect on your daily routine, and identify one task that you can break down into smaller, manageable chunks. Remember, we're not trying to overhaul your entire routine at once; we're taking small, gentle steps towards improvement. As you breathe in, repeat the phrase 'I am capable,' and as you breathe out, say 'I let go of distractions.'",
+        "timestamp": "07:53 pm",
+        "analysis": {
+          "rootCause": "Lack of Task Segmentation",
+          "riskLevels": [
+            {
+              "factor": "Task Overload",
+              "scale": 70,
+              "color": "blue"
+            },
+            {
+              "factor": "Distraction",
+              "scale": 80,
+              "color": "red"
+            }
+          ],
+          "actionItems": [
+            "Identify one task to break down into smaller chunks",
+            "Create a 'Focus Time' schedule with dedicated blocks for tasks",
+            "Practice gentle breathing exercises to calm your mind before focusing"
+          ],
+          "timeframeEstimation": "3-5 days"
+        }
+      },
+      {
+        "id": "msg-user-1779805574381",
+        "sender": "user",
+        "text": "I struggle with starting key tasks",
+        "timestamp": "07:56 pm"
+      },
+      {
+        "id": "msg-ai-1779805574382",
+        "sender": "ai",
+        "text": "It's completely understandable to feel stuck when it comes to starting key tasks. Let's take a gentle breath in, and as we exhale, allow any tension to release. Beginning a task can be overwhelming, but we can break it down into smaller, manageable steps. Imagine taking a small, peaceful walk, one step at a time, and with each step, you're getting closer to your goal. Your discipline index is at 75, which is a great foundation to build upon. By focusing on small, achievable tasks, you'll start to build momentum and confidence. As you work through these tasks, remember to be kind to yourself and acknowledge the progress you're making, no matter how small it may seem. Take another deep breath in, and as you exhale, repeat the phrase 'I can start small and make progress.' Let's work together to create a plan that helps you overcome this hurdle and find a sense of flow and productivity.",
+        "timestamp": "07:56 pm",
+        "analysis": {
+          "rootCause": "Task Initiation Anxiety",
+          "riskLevels": [
+            {
+              "factor": "Perfectionism",
+              "scale": 70,
+              "color": "blue"
+            },
+            {
+              "factor": "Fear of Failure",
+              "scale": 50,
+              "color": "green"
+            }
+          ],
+          "actionItems": [
+            "Break down large tasks into smaller, 10-minute tasks",
+            "Create a 'starting ritual' to signal the beginning of a task, such as making a cup of tea or doing a quick stretch",
+            "Schedule tasks in your calendar and set reminders to help stay on track"
+          ],
+          "timeframeEstimation": "Within the next 3-5 days, you can expect to notice a shift in your ability to start tasks with greater ease"
+        }
+      },
+      {
+        "id": "msg-user-1779805581761",
+        "sender": "user",
+        "text": "I lose focus on high-effort goals",
+        "timestamp": "07:56 pm"
+      },
+      {
+        "id": "msg-ai-1779805581761",
+        "sender": "ai",
+        "text": "It's completely understandable to feel overwhelmed by high-effort goals, and I'm here to support you in breaking them down into manageable tasks. Let's take a gentle approach to rebuilding your focus. Start by taking a few deep breaths, inhaling for a count of four, holding for a count of four, and exhaling for a count of four. This simple exercise can help calm your mind and reduce any feelings of anxiety. As we work together, remember that it's essential to be kind to yourself and acknowledge that it's okay to take things one step at a time. By doing so, you'll be able to create a sense of control and momentum, which will help you stay focused on your goals.",
+        "timestamp": "07:56 pm",
+        "analysis": {
+          "rootCause": "Goal Overwhelm",
+          "riskLevels": [
+            {
+              "factor": "Perfectionism",
+              "scale": 80,
+              "color": "red"
+            },
+            {
+              "factor": "Lack of Clear Objectives",
+              "scale": 70,
+              "color": "orange"
+            }
+          ],
+          "actionItems": [
+            "Break down high-effort goals into smaller, achievable tasks",
+            "Create a schedule with dedicated time for each task",
+            "Celebrate your progress, no matter how small, to build motivation"
+          ],
+          "timeframeEstimation": "2-3 weeks"
+        }
+      },
+      {
+        "id": "msg-user-1779805585477",
+        "sender": "user",
+        "text": "I feel overwhelmed choosing priorities",
+        "timestamp": "07:56 pm"
+      },
+      {
+        "id": "msg-ai-1779805585478",
+        "sender": "ai",
+        "text": "I completely understand that feeling of being overwhelmed by all the choices and tasks in front of you. It's as if every priority is screaming for your attention, making it hard to focus on just one thing. Let's take a gentle breath in, hold it for a moment, and exhale slowly. As we breathe, allow your body and mind to relax, just a little bit. Now, let's break down this feeling of overwhelm into smaller, manageable pieces. Imagine each task or priority as a small stone that you can pick up, examine, and then place in its designated spot. This process of deconstructing your routine can feel daunting, but by taking it one stone at a time, you'll begin to see a clearer path forward.",
+        "timestamp": "07:56 pm",
+        "analysis": {
+          "rootCause": "Overwhelm from Multiple Priorities",
+          "riskLevels": [
+            {
+              "factor": "Decision Paralysis",
+              "scale": 80,
+              "color": "blue"
+            },
+            {
+              "factor": "Lack of Clear Goals",
+              "scale": 70,
+              "color": "green"
+            }
+          ],
+          "actionItems": [
+            "Identify your top three priorities for the day",
+            "Allocate specific time slots for each priority",
+            "Take a short break between tasks to refresh your focus"
+          ],
+          "timeframeEstimation": "Within the next 24-48 hours, you should start feeling more in control of your priorities"
+        }
+      },
+      {
+        "id": "msg-user-1779805589421",
+        "sender": "user",
+        "text": "My habits collapse after a week",
+        "timestamp": "07:56 pm"
+      },
+      {
+        "id": "msg-ai-1779805589421",
+        "sender": "ai",
+        "text": "It's completely normal to experience a dip in motivation after a week of establishing new habits. Let's take a gentle breath in, and as we exhale, allow any tension to release. It's great that you've recognized this pattern, and we can work together to strengthen your routine. Start by acknowledging that it's not about being perfect, but about making progress. Take a moment to reflect on the habits you've been trying to build, and identify the ones that bring you the most joy and energy. By focusing on these positive aspects, you'll begin to rekindle your motivation. Remember, small steps can lead to significant changes over time. As you move forward, be kind to yourself and celebrate your tiny wins. \n   \n   To further support your journey, let's break down the process into manageable tasks. This will help you regain control and confidence in your routine. Begin by evaluating your daily schedule and identifying pockets of time where you can realistically dedicate to your habits. It might be helpful to start with shorter, more achievable goals, and then gradually increase the duration as you become more comfortable. \n   \n   As you navigate this process, keep in mind that it's essential to be patient and compassionate with yourself. It's okay to encounter setbacks, and it doesn't mean you've failed. Instead, view these moments as opportunities to learn and grow. Take a deep breath in, and as you exhale, repeat a gentle affirmation to yourself, such as 'I am capable of creating positive change in my life.' \n   \n   By embracing this mindset and taking small, consistent steps, you'll begin to notice a shift in your habits and overall well-being. Remember to breathe, stay hydrated, and prioritize self-care throughout your journey. You're not alone, and I'm here to support you every step of the way.",
+        "timestamp": "07:56 pm",
+        "analysis": {
+          "rootCause": "Lack of Sustained Motivation",
+          "riskLevels": [
+            {
+              "factor": "Inconsistent Schedule",
+              "scale": 80,
+              "color": "blue"
+            },
+            {
+              "factor": "Unrealistic Expectations",
+              "scale": 70,
+              "color": "green"
+            }
+          ],
+          "actionItems": [
+            "Identify and prioritize core habits",
+            "Break down large goals into smaller tasks",
+            "Establish a consistent daily routine"
+          ],
+          "timeframeEstimation": "2-4 weeks"
+        }
+      },
+      {
+        "id": "msg-user-1779805742904",
+        "sender": "user",
+        "text": "I struggle with starting key tasks",
+        "timestamp": "07:59 pm"
+      },
+      {
+        "id": "msg-ai-1779805742925",
+        "sender": "ai",
+        "text": "Let's take a gentle approach to understanding your challenges with starting key tasks. It seems like you might be experiencing a bit of inertia, which is completely normal. To begin, take a few deep breaths in through your nose and out through your mouth, feeling the air move in and out of your body. As you breathe, allow your muscles to relax and your mind to calm. Now, let's explore the idea that sometimes, the tasks in front of us can feel overwhelming, leading to a sense of paralysis. We can break down these tasks into smaller, manageable chunks, making them feel less daunting. For instance, if you're struggling to start a project, try beginning with a single, small step, like making a list or setting up your workspace. Remember, the goal is not to tackle everything at once but to make gradual progress, one gentle step at a time.",
+        "timestamp": "07:59 pm",
+        "analysis": {
+          "rootCause": "Inertia and Task Overwhelm",
+          "riskLevels": [
+            {
+              "factor": "Procrastination",
+              "scale": 70,
+              "color": "blue"
+            },
+            {
+              "factor": "Perfectionism",
+              "scale": 50,
+              "color": "green"
+            }
+          ],
+          "actionItems": [
+            "Identify one key task to focus on",
+            "Break down the task into three smaller steps",
+            "Commit to taking the first step within the next 24 hours"
+          ],
+          "timeframeEstimation": "Within 3-5 days, you should start to feel a sense of momentum"
+        }
+      },
+      {
+        "id": "msg-user-1779805772945",
+        "sender": "user",
+        "text": "I lose focus on high-effort goals",
+        "timestamp": "07:59 pm"
+      },
+      {
+        "id": "msg-ai-1779805772945",
+        "sender": "ai",
+        "text": "It's completely understandable to struggle with maintaining focus on high-effort goals. Let's take a gentle breath in, and as we exhale, allow any tension or stress to release. It's essential to recognize that deconstructing routines can be a powerful tool in regaining focus. By breaking down larger goals into smaller, manageable tasks, we can create a sense of control and momentum. Take a moment to reflect on your goals, and let's identify the smallest, most achievable step you can take today. Remember, it's not about being perfect; it's about making progress. As you move forward, I encourage you to practice self-compassion and celebrate each small victory. You're taking the first step towards reclaiming your focus, and that's something to be proud of. Take another deep breath, and let's proceed with a sense of calm and clarity.",
+        "timestamp": "07:59 pm",
+        "analysis": {
+          "rootCause": "Goal Overwhelm",
+          "riskLevels": [
+            {
+              "factor": "Procrastination",
+              "scale": 70,
+              "color": "blue"
+            },
+            {
+              "factor": "Perfectionism",
+              "scale": 80,
+              "color": "red"
+            }
+          ],
+          "actionItems": [
+            "Identify one high-effort goal to focus on",
+            "Break down the goal into three smaller, actionable tasks",
+            "Commit to completing one task per day for the next three days"
+          ],
+          "timeframeEstimation": "3-5 days"
+        }
+      },
+      {
+        "id": "msg-user-1779805794880",
+        "sender": "user",
+        "text": "my head is paining",
+        "timestamp": "07:59 pm"
+      },
+      {
+        "id": "msg-ai-1779805794881",
+        "sender": "ai",
+        "text": "I can sense that you're feeling a bit overwhelmed, and that headache is probably a sign that your mind and body need a gentle break. Let's take a few deep breaths together, shall we? Inhale slowly through your nose, hold it for a second, and exhale slowly through your mouth. As we breathe, let's acknowledge that it's okay to feel this way, and that we can work through it together. Routine deconstruction can be a challenging but rewarding process, and I'm here to support you every step of the way. Remember, we're not trying to tackle everything at once - just small, manageable steps. Your discipline index is strong, and with a stable energy level, we can make some great progress.",
+        "timestamp": "07:59 pm",
+        "analysis": {
+          "rootCause": "Overwhelm and Stress",
+          "riskLevels": [
+            {
+              "factor": "Burnout",
+              "scale": 40,
+              "color": "blue"
+            },
+            {
+              "factor": "Self-Doubt",
+              "scale": 30,
+              "color": "green"
+            }
+          ],
+          "actionItems": [
+            "Take a 10-minute break to stretch and move your body",
+            "Identify one routine task that's feeling particularly overwhelming and break it down into smaller tasks",
+            "Practice a 5-minute meditation or deep breathing exercise to calm your mind"
+          ],
+          "timeframeEstimation": "You may start feeling some relief and reduction in headache within the next 30 minutes to an hour, as we work through these gentle exercises and small steps together"
+        }
+      },
+      {
+        "id": "msg-user-1779813759950",
+        "sender": "user",
+        "text": "I struggle with starting key tasks",
+        "timestamp": "10:12 pm"
+      },
+      {
+        "id": "msg-ai-1779813759953",
+        "sender": "ai",
+        "text": "It's completely understandable to feel overwhelmed when facing key tasks. Let's break this down into smaller, manageable parts. Take a gentle breath in, hold it for a second, and exhale slowly. As you breathe out, allow any tension to release from your body. Now, imagine yourself tackling these tasks with ease and confidence. You've already demonstrated a high level of discipline, which is a great foundation to build upon. To further support you, let's focus on creating a routine that works for you, rather than against you. Start by identifying the smallest, most achievable tasks that will move you closer to your goals. Remember, the goal is progress, not perfection. As you work through these tasks, take regular breaks to recharge and refocus. Your stable energy levels will help you stay consistent and motivated.",
+        "timestamp": "10:12 pm",
+        "analysis": {
+          "rootCause": "Task Initiation Anxiety",
+          "riskLevels": [
+            {
+              "factor": "Procrastination",
+              "scale": 70,
+              "color": "orange"
+            },
+            {
+              "factor": "Perfectionism",
+              "scale": 40,
+              "color": "blue"
+            }
+          ],
+          "actionItems": [
+            "Identify the smallest task that can be completed in 10 minutes",
+            "Schedule this task into your daily routine for the next 3 days",
+            "Review and adjust your task list every evening to maintain momentum"
+          ],
+          "timeframeEstimation": "3-5 days"
+        }
+      },
+      {
+        "id": "msg-user-1779813886929",
+        "sender": "user",
+        "text": "Detail a NSDR script to recover mental energy",
+        "timestamp": "10:14 pm"
+      },
+      {
+        "id": "msg-ai-1779813886929",
+        "sender": "ai",
+        "text": "I'm so glad you're taking this step towards recovering your mental energy. It's completely normal to feel drained, and I'm here to support you. To start, let's break down the concept of a NSDR script. NSDR stands for 'No-Stimulation Deep Relaxation,' and it's a powerful tool to help you unwind and recharge. Begin by finding a quiet, comfortable space where you can sit or lie down without distractions. Take a few gentle breaths in through your nose and out through your mouth, feeling the air move in and out of your body. As you breathe, allow your muscles to relax, starting from your toes and moving up to the top of your head. Now, let's craft a simple NSDR script for you. Imagine yourself in a peaceful environment, such as a serene beach or a quiet forest. Use all of your senses to bring this scene to life, noticing the sights, sounds, and sensations in your body. As you settle into this peaceful state, repeat a calming phrase to yourself, such as 'I am safe and relaxed.' Remember, the goal is to let go of any tension or stress, allowing yourself to fully surrender to the present moment. Take a few moments to breathe deeply, feeling your heart rate slow and your mind calm. You can do this, and I'm here to support you every step of the way.",
+        "timestamp": "10:14 pm",
+        "analysis": {
+          "rootCause": "Energy Depletion",
+          "riskLevels": [
+            {
+              "factor": "Mental Fatigue",
+              "scale": 80,
+              "color": "blue"
+            },
+            {
+              "factor": "Lack of Self-Care",
+              "scale": 70,
+              "color": "green"
+            }
+          ],
+          "actionItems": [
+            "Set aside 10-15 minutes each day for NSDR practice",
+            "Create a peaceful environment that promotes relaxation",
+            "Use a guided NSDR script or calming phrase to enhance your experience"
+          ],
+          "timeframeEstimation": "3-5 days"
+        }
+      }
+    ]
+  },
+  "msshravan2004@gmail.com": {
+    "user": {
+      "id": "4cf9a97d-8043-4f94-9f2a-a9b590d2426d",
+      "name": "saravanan",
+      "email": "msshravan2004@gmail.com",
+      "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+      "role": "Free User",
+      "xpPoints": 1200,
+      "coachPersona": "ora",
+      "focusArea": "Routine deconstruction",
+      "energyState": "Stable",
+      "discipline": 75,
+      "joinedAt": "2026-05-26T16:47:30.166Z",
+      "lifeAreaScores": {
+        "life": 84,
+        "focus": 92,
+        "discipline": 78,
+        "energy": 65,
+        "finance": 74
+      }
+    },
+    "missions": [
+      {
+        "id": "m1",
+        "text": "Complete 25-minute focus session",
+        "val": 150,
+        "category": "focus",
+        "completed": true
+      },
+      {
+        "id": "m2",
+        "text": "Take a mid-day calm breathing break",
+        "val": 100,
+        "category": "clarity",
+        "completed": false
+      },
+      {
+        "id": "m3",
+        "text": "Review your daily budget list",
+        "val": 80,
+        "category": "finance",
+        "completed": false
+      },
+      {
+        "id": "m4",
+        "text": "Study new skills for 15 minutes",
+        "val": 120,
+        "category": "learning",
+        "completed": false
+      }
+    ],
+    "journeys": [
+      {
+        "id": "escape-procrastination",
+        "title": "Clarity Alignment",
+        "desc": "Deconstruct starting hesitation and configure private space parameters designed to build focus.",
+        "xp": 1500,
+        "streak": 12,
+        "level": 3,
+        "unlocked": true,
+        "missions": [
+          {
+            "id": "ep1",
+            "text": "Initiate with a simple 5-minute sandbox task",
+            "xp": 300,
+            "completed": true
+          },
+          {
+            "id": "ep2",
+            "text": "Configure monomode physical limits (disable hardware notifications)",
+            "xp": 400,
+            "completed": false
+          },
+          {
+            "id": "ep3",
+            "text": "Pre-load next day's 3 priority contexts the night before",
+            "xp": 500,
+            "completed": false
+          }
+        ]
+      },
+      {
+        "id": "productivity-reset",
+        "title": "Cognitive Reboot",
+        "desc": "Re-anchor focus stamina by shifting from fragmented multitasking cycles to singular deep intervals.",
+        "xp": 2200,
+        "streak": 8,
+        "level": 4,
+        "unlocked": true,
+        "missions": [
+          {
+            "id": "pr1",
+            "text": "Schedule a singular 90-minute monomode block",
+            "xp": 450,
+            "completed": false
+          },
+          {
+            "id": "pr2",
+            "text": "Integrate a 10-minute quiet non-stimulus walk",
+            "xp": 350,
+            "completed": false
+          },
+          {
+            "id": "pr3",
+            "text": "Flush active cognitive baggage by clearing secondary context tabs",
+            "xp": 300,
+            "completed": false
+          }
+        ]
+      },
+      {
+        "id": "rebuild-my-life",
+        "title": "System Restoration",
+        "desc": "Restore daily sleep consistency, weekly micro-budgets, and balanced cardiovascular routines.",
+        "xp": 4500,
+        "streak": 5,
+        "level": 5,
+        "unlocked": true,
+        "missions": [
+          {
+            "id": "rl1",
+            "text": "Establish sleep boundaries (stabilize sleep window under 11:00 PM)",
+            "xp": 600,
+            "completed": false
+          },
+          {
+            "id": "rl2",
+            "text": "Register and categorize all active weekly outflows",
+            "xp": 500,
+            "completed": false
+          },
+          {
+            "id": "rl3",
+            "text": "Restore regular cardiorespiratory threshold focus (30m training)",
+            "xp": 450,
+            "completed": false
+          }
+        ]
+      },
+      {
+        "id": "become-disciplined",
+        "title": "Sustained Volition",
+        "desc": "Amplify volitional starting capacity and build lasting cognitive habits under stress.",
+        "xp": 3000,
+        "streak": 15,
+        "level": 6,
+        "unlocked": false,
+        "missions": [
+          {
+            "id": "bd1",
+            "text": "Couple morning hydration directly to a review sequence",
+            "xp": 500,
+            "completed": false
+          },
+          {
+            "id": "bd2",
+            "text": "Integrate a 60-second immediate cold immersion sequence",
+            "xp": 600,
+            "completed": false
+          }
+        ]
+      }
+    ],
+    "focusLogs": [
+      {
+        "id": "fl1",
+        "timestamp": "2026-05-26T15:47:30.166Z",
+        "duration": 1500,
+        "mode": "focus",
+        "sound": "binaural"
+      }
+    ],
+    "accountabilityLogs": [
+      {
+        "id": "al1",
+        "timestamp": "2026-05-25T16:47:30.166Z",
+        "sleepRating": 80,
+        "routineAlignment": 75,
+        "monomodeCompletion": 60,
+        "notes": "I managed my focus blocks well, but had some phone notification disruptions in the afternoon.",
+        "coachFeedback": "Excellent stability on routine alignments. Ensure hardware notification switches are toggled before your next monomode sequence."
+      }
+    ],
+    "chats": [
+      {
+        "id": "welcome-ai",
+        "sender": "ai",
+        "text": "I am your alignment advisor. Let's examine the conditions surrounding your focus or routine plateaus. Share the obstacle you are facing today, and we will formulate a simple, low-friction adjustment logic.",
+        "timestamp": "READY"
+      }
+    ]
+  },
+  "newmsshravan2004@gmail.com": {
+    "user": {
+      "id": "fbd461ad-1fbc-41cf-9d87-57290b24a96e",
+      "name": "saravanan",
+      "email": "newmsshravan2004@gmail.com",
+      "passwordHash": "ebab6ba618a66878f11f483abc6fa54473a3cdbfcd984c005bb67b6ea97c56ce",
+      "role": "Free User",
+      "xpPoints": 1200,
+      "coachPersona": "ora",
+      "focusArea": "Routine deconstruction",
+      "energyState": "Stable",
+      "discipline": 75,
+      "joinedAt": "2026-05-26T18:15:46.811Z",
+      "lifeAreaScores": {
+        "life": 84,
+        "focus": 92,
+        "discipline": 78,
+        "energy": 65,
+        "finance": 74
+      }
+    },
+    "missions": [
+      {
+        "id": "m1",
+        "text": "Complete 25-minute focus session",
+        "val": 150,
+        "category": "focus",
+        "completed": true
+      },
+      {
+        "id": "m2",
+        "text": "Take a mid-day calm breathing break",
+        "val": 100,
+        "category": "clarity",
+        "completed": false
+      },
+      {
+        "id": "m3",
+        "text": "Review your daily budget list",
+        "val": 80,
+        "category": "finance",
+        "completed": false
+      },
+      {
+        "id": "m4",
+        "text": "Study new skills for 15 minutes",
+        "val": 120,
+        "category": "learning",
+        "completed": false
+      }
+    ],
+    "journeys": [
+      {
+        "id": "escape-procrastination",
+        "title": "Clarity Alignment",
+        "desc": "Deconstruct starting hesitation and configure private space parameters designed to build focus.",
+        "xp": 1500,
+        "streak": 12,
+        "level": 3,
+        "unlocked": true,
+        "missions": [
+          {
+            "id": "ep1",
+            "text": "Initiate with a simple 5-minute sandbox task",
+            "xp": 300,
+            "completed": true
+          },
+          {
+            "id": "ep2",
+            "text": "Configure monomode physical limits (disable hardware notifications)",
+            "xp": 400,
+            "completed": false
+          },
+          {
+            "id": "ep3",
+            "text": "Pre-load next day's 3 priority contexts the night before",
+            "xp": 500,
+            "completed": false
+          }
+        ]
+      },
+      {
+        "id": "productivity-reset",
+        "title": "Cognitive Reboot",
+        "desc": "Re-anchor focus stamina by shifting from fragmented multitasking cycles to singular deep intervals.",
+        "xp": 2200,
+        "streak": 8,
+        "level": 4,
+        "unlocked": true,
+        "missions": [
+          {
+            "id": "pr1",
+            "text": "Schedule a singular 90-minute monomode block",
+            "xp": 450,
+            "completed": false
+          },
+          {
+            "id": "pr2",
+            "text": "Integrate a 10-minute quiet non-stimulus walk",
+            "xp": 350,
+            "completed": false
+          },
+          {
+            "id": "pr3",
+            "text": "Flush active cognitive baggage by clearing secondary context tabs",
+            "xp": 300,
+            "completed": false
+          }
+        ]
+      },
+      {
+        "id": "rebuild-my-life",
+        "title": "System Restoration",
+        "desc": "Restore daily sleep consistency, weekly micro-budgets, and balanced cardiovascular routines.",
+        "xp": 4500,
+        "streak": 5,
+        "level": 5,
+        "unlocked": true,
+        "missions": [
+          {
+            "id": "rl1",
+            "text": "Establish sleep boundaries (stabilize sleep window under 11:00 PM)",
+            "xp": 600,
+            "completed": false
+          },
+          {
+            "id": "rl2",
+            "text": "Register and categorize all active weekly outflows",
+            "xp": 500,
+            "completed": false
+          },
+          {
+            "id": "rl3",
+            "text": "Restore regular cardiorespiratory threshold focus (30m training)",
+            "xp": 450,
+            "completed": false
+          }
+        ]
+      },
+      {
+        "id": "become-disciplined",
+        "title": "Sustained Volition",
+        "desc": "Amplify volitional starting capacity and build lasting cognitive habits under stress.",
+        "xp": 3000,
+        "streak": 15,
+        "level": 6,
+        "unlocked": false,
+        "missions": [
+          {
+            "id": "bd1",
+            "text": "Couple morning hydration directly to a review sequence",
+            "xp": 500,
+            "completed": false
+          },
+          {
+            "id": "bd2",
+            "text": "Integrate a 60-second immediate cold immersion sequence",
+            "xp": 600,
+            "completed": false
+          }
+        ]
+      }
+    ],
+    "focusLogs": [
+      {
+        "id": "fl1",
+        "timestamp": "2026-05-26T17:15:46.811Z",
+        "duration": 1500,
+        "mode": "focus",
+        "sound": "binaural"
+      }
+    ],
+    "accountabilityLogs": [
+      {
+        "id": "al1",
+        "timestamp": "2026-05-25T18:15:46.811Z",
+        "sleepRating": 80,
+        "routineAlignment": 75,
+        "monomodeCompletion": 60,
+        "notes": "I managed my focus blocks well, but had some phone notification disruptions in the afternoon.",
+        "coachFeedback": "Excellent stability on routine alignments. Ensure hardware notification switches are toggled before your next monomode sequence."
+      }
+    ],
+    "chats": [
+      {
+        "id": "welcome-ai",
+        "sender": "ai",
+        "text": "I am your alignment advisor. Let's examine the conditions surrounding your focus or routine plateaus. Share the obstacle you are facing today, and we will formulate a simple, low-friction adjustment logic.",
+        "timestamp": "READY"
+      }
+    ]
+  }
+}

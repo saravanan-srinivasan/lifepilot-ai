@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: lifepilot-ai
+    env: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PERSISTENT_DIR
+        value: /data
+      - key: GROQ_API_KEY
+        sync: false
+        placeholder: "Enter your Groq Cloud API Key here"
+      - key: SMTP_HOST
+        sync: false
+        placeholder: "Optional: e.g. smtp.gmail.com"
+      - key: SMTP_PORT
+        sync: false
+        placeholder: "Optional: e.g. 587"
+      - key: SMTP_USER
+        sync: false
+        placeholder: "Optional: your SMTP username"
+      - key: SMTP_PASS
+        sync: false
+        placeholder: "Optional: your SMTP password"
+      - key: SMTP_FROM
+        sync: false
+        placeholder: "Optional: e.g. 'LifePilot' <no-reply@yourdomain.com>"
+    disk:
+      name: lifepilot-db-volume
+      mountPath: /data
+      sizeGB: 1
