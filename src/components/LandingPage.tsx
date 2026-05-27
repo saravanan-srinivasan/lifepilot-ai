@@ -58,11 +58,44 @@ export default function LandingPage({ onJoinClick, onExploreDashboard }: Landing
   const [selectedTopic, setSelectedTopic] = useState<"focus" | "routine" | "pivot">("focus");
 
   const heroRef = useRef<HTMLDivElement>(null);
+  const mockupRef = useRef<HTMLDivElement>(null);
+  
+  // Real-time dynamic 3D tilt state values
+  const [rotateX, setRotateX] = useState(0);
+  const [rotateY, setRotateY] = useState(0);
+  const [glowX, setGlowX] = useState(50);
+  const [glowY, setGlowY] = useState(50);
+  const [hoveredNode, setHoveredNode] = useState<string | null>(null);
+
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 120]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
+  const handleMockupMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!mockupRef.current) return;
+    const card = mockupRef.current;
+    const rect = card.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    
+    // Calculate normalized cursor coordinates relative to card center (-0.5 to 0.5)
+    const mouseX = (e.clientX - rect.left) / width - 0.5;
+    const mouseY = (e.clientY - rect.top) / height - 0.5;
 
+    // Map coordinates to subtle premium tilt angles (max 6 degrees for premium restraint)
+    setRotateX(-mouseY * 12);
+    setRotateY(mouseX * 12);
+
+    // Map cursor coordinates to background radial glow percentage
+    setGlowX(((e.clientX - rect.left) / width) * 100);
+    setGlowY(((e.clientY - rect.top) / height) * 100);
+  };
+
+  const handleMockupMouseLeave = () => {
+    // Reset to pure level on leave with elegant transition
+    setRotateX(0);
+    setRotateY(0);
+  };
 
   const topics = {
     focus: {
@@ -128,10 +161,10 @@ export default function LandingPage({ onJoinClick, onExploreDashboard }: Landing
   ];
 
   const liveStats = [
-    { icon: TrendingUp, label: "Focus Score", value: "94.8%", color: "text-violet-400" },
+    { icon: TrendingUp, label: "Focus Score", value: "94.8%", color: "text-indigo-400" },
     { icon: Zap, label: "XP Earned", value: "+840", color: "text-amber-400" },
-    { icon: Clock, label: "Time Saved", value: "14.2m", color: "text-blue-400" },
-    { icon: Shield, label: "Privacy", value: "100%", color: "text-emerald-400" },
+    { icon: Clock, label: "Time Saved", value: "14.2m", color: "text-sky-400" },
+    { icon: Shield, label: "Privacy Status", value: "Fully Secure", color: "text-emerald-400" },
   ];
 
   return (
@@ -141,247 +174,288 @@ export default function LandingPage({ onJoinClick, onExploreDashboard }: Landing
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         {/* Refined static ambient glow */}
         <div 
-          className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1000px] h-[600px] rounded-full opacity-[0.10]"
-          style={{ background: "radial-gradient(circle, #5B6EF5 0%, transparent 75%)", filter: "blur(120px)" }}
+          className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full opacity-[0.14]"
+          style={{ background: "radial-gradient(circle, #5B6EF5 0%, transparent 70%)", filter: "blur(140px)" }}
         />
         {/* Subtle grid mesh */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.008)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.008)_1px,transparent_1px)] bg-[size:64px_64px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.006)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.006)_1px,transparent_1px)] bg-[size:64px_64px]" />
         {/* Vignette */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(6,6,10,0.95)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(6,6,10,0.98)_100%)]" />
       </div>
 
-
-
       {/* ── HERO SECTION ── */}
-      <section ref={heroRef} id="hero-showcase" className="relative pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 md:pb-28 px-4 sm:px-6 md:px-8 z-10 max-w-7xl mx-auto w-full">
+      <section ref={heroRef} id="hero-showcase" className="relative pt-36 sm:pt-40 md:pt-44 pb-16 sm:pb-24 px-4 sm:px-6 md:px-8 z-10 max-w-7xl mx-auto w-full">
         <motion.div style={{ y: heroY, opacity: heroOpacity }} className="flex flex-col items-center text-center">
 
-          {/* Launch badge */}
+          {/* Luxury launch badge */}
           <motion.div
             initial={{ opacity: 0, y: -16, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             onClick={onExploreDashboard}
-            className="badge-accent mb-10 hover:bg-accent/15 hover:border-accent/35 transition-colors cursor-pointer group"
+            className="mb-8 cursor-pointer group"
           >
-            <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-              <span>AI Habit Intelligence · Now Live</span>
-              <ArrowRight className="w-3 h-3 text-accent group-hover:translate-x-0.5 transition-transform" />
-            </span>
+            <div className="relative inline-flex items-center gap-2.5 px-4.5 py-2 rounded-full bg-zinc-950/80 border border-white/[0.06] backdrop-blur-xl shadow-2xl transition-all duration-300 hover:border-indigo-500/30 hover:shadow-indigo-500/5 hover:-translate-y-0.5">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+              </span>
+              <span className="text-[10px] font-mono tracking-[0.22em] text-zinc-400 uppercase group-hover:text-zinc-200 transition-colors">AI Habit Intelligence · Now Live</span>
+              <ArrowRight className="w-3.5 h-3.5 text-zinc-500 group-hover:translate-x-1 group-hover:text-indigo-400 transition-all" />
+            </div>
           </motion.div>
 
           {/* Main headline */}
-          <div className="relative mb-8 md:mb-10">
+          <div className="relative mb-8 md:mb-10 max-w-5xl">
             <motion.h1
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-light tracking-[-0.045em] leading-[1.02] max-w-6xl"
+              transition={{ duration: 1.1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-[-0.04em] leading-[1.05]"
             >
-              <span className="text-[#F0F0F5]">Clarity for </span>
-              <br className="hidden md:block" />
+              <span className="text-zinc-300 font-sans tracking-tight">Clarity for </span>
               <span className="relative inline-block">
-                <span className="font-serif italic font-normal text-zinc-200">
+                <span className="font-serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 via-indigo-100 to-zinc-400 pr-2">
                   busy lives.
                 </span>
-                {/* Underline accent line */}
+                {/* Custom premium organic under-glow highlight line */}
                 <motion.div
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
-                  transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute -bottom-2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent origin-left"
+                  transition={{ duration: 1.4, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute -bottom-2 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent origin-center"
                 />
               </span>
             </motion.h1>
           </div>
 
+          {/* Sub-headline */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.35 }}
-            className="text-lg sm:text-xl md:text-2xl max-w-2xl font-light leading-relaxed mb-12 md:mb-14 tracking-wide text-zinc-400"
+            transition={{ duration: 1.2, delay: 0.35 }}
+            className="text-base sm:text-lg md:text-xl max-w-xl font-light leading-relaxed mb-12 md:mb-14 tracking-wide text-zinc-400/90"
           >
-            A calm, intelligent app to build daily habits,{" "}
-            <span className="text-zinc-200">beat stress</span>, and{" "}
-            <span className="text-zinc-200">lock in deep focus</span> — powered by AI.
+            A calm, organic framework to formulate daily consistency,{" "}
+            <span className="text-zinc-200 font-normal">dissolve stress</span>, and{" "}
+            <span className="text-zinc-200 font-normal">attain deep focus</span>.
           </motion.p>
 
           {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.45 }}
-            className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-lg mb-20 md:mb-24 px-4"
+            transition={{ duration: 0.9, delay: 0.45 }}
+            className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-lg mb-20 px-4"
           >
-            {/* Primary CTA */}
+            {/* Primary CTA with Premium Shine Effect */}
             <button
               id="btn-hero-join"
               onClick={onJoinClick}
-              className="btn-accent w-full sm:w-auto px-10 py-4 font-semibold text-sm tracking-wide"
+              className="relative w-full sm:w-auto px-8 py-3.5 rounded-xl font-semibold text-xs tracking-widest uppercase overflow-hidden cursor-pointer group bg-white text-[#060608] border border-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:scale-[1.02] active:scale-[0.98]"
             >
-              Get Started Free <ArrowRight className="w-4 h-4" />
+              {/* Shine highlight */}
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-[shimmer_1.2s_ease-in-out_infinite]" />
+              <span className="relative flex items-center justify-center gap-2">
+                Get Started Free <ArrowRight className="w-3.5 h-3.5 text-zinc-800" />
+              </span>
             </button>
 
-            {/* Secondary CTA */}
+            {/* Secondary Glassmorphic CTA */}
             <button
               id="btn-hero-explore"
               onClick={onExploreDashboard}
-              className="btn-ghost w-full sm:w-auto px-10 py-4 font-medium text-sm tracking-wide"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-xl font-semibold text-xs tracking-widest uppercase text-zinc-400 bg-white/[0.02] border border-white/[0.06] backdrop-blur-xl transition-all duration-300 hover:text-white hover:border-white/20 hover:bg-white/[0.05] active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer"
             >
               <span>Open Dashboard</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
+              <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
             </button>
           </motion.div>
 
-          {/* ── PREMIUM HERO MOCKUP ── */}
+          {/* ── PREMIUM INTERACTIVE 3D HERO MOCKUP ── */}
           <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.97 }}
+            initial={{ opacity: 0, y: 60, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.55 }}
-            className="w-full max-w-5xl relative"
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.55 }}
+            className="w-full max-w-5xl relative cursor-pointer"
+            style={{ perspective: 1000 }}
           >
-            {/* Glow behind card */}
-            <div className="absolute -inset-4 bg-gradient-to-b from-violet-600/10 via-blue-600/5 to-transparent rounded-3xl blur-2xl pointer-events-none" />
-            <div className="absolute -bottom-8 left-1/4 right-1/4 h-16 bg-violet-500/10 blur-3xl rounded-full pointer-events-none" />
+            {/* dynamic shifting ambient light behind card */}
+            <div 
+              className="absolute -inset-10 bg-gradient-to-tr from-indigo-500/10 via-purple-500/5 to-transparent rounded-3xl blur-3xl pointer-events-none transition-all duration-300"
+              style={{
+                background: `radial-gradient(circle at ${glowX}% ${glowY}%, rgba(91,110,245,0.15) 0%, rgba(139,92,246,0.06) 50%, transparent 100%)`
+              }}
+            />
 
-            {/* Main card */}
-            <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0a0a0f]/80 backdrop-blur-xl shadow-[0_40px_100px_-20px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.06)]">
+            {/* 3D Responsive Card Wrapper */}
+            <motion.div
+              ref={mockupRef}
+              onMouseMove={handleMockupMouseMove}
+              onMouseLeave={handleMockupMouseLeave}
+              animate={{ rotateX, rotateY }}
+              transition={{ type: "spring", stiffness: 120, damping: 25, mass: 0.5 }}
+              className="relative rounded-2xl overflow-hidden border border-white/[0.07] bg-[#09090e]/90 backdrop-blur-3xl shadow-[0_50px_100px_-30px_rgba(0,0,0,0.95),inset_0_1px_0_rgba(255,255,255,0.06)]"
+              style={{ transformStyle: "preserve-3d" }}
+            >
               
-              {/* Top bar */}
-              <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/[0.05] bg-white/[0.015]">
+              {/* Premium Hardware/Device Styled Window Top bar */}
+              <div 
+                className="flex items-center justify-between px-6 py-4 border-b border-white/[0.04] bg-white/[0.015]"
+                style={{ transform: "translateZ(20px)" }}
+              >
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500/70 hover:bg-red-400 transition-colors cursor-pointer" />
-                  <div className="w-3 h-3 rounded-full bg-amber-500/70 hover:bg-amber-400 transition-colors cursor-pointer" />
-                  <div className="w-3 h-3 rounded-full bg-emerald-500/70 hover:bg-emerald-400 transition-colors cursor-pointer" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-zinc-800 border border-zinc-700 transition-colors" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-zinc-800 border border-zinc-700 transition-colors" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-zinc-800 border border-zinc-700 transition-colors" />
                 </div>
-                <div className="flex items-center gap-2 px-4 py-1.5 rounded-lg bg-white/[0.03] border border-white/[0.05]">
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_rgba(52,211,153,0.8)]" />
-                  <span className="text-[10px] font-mono text-zinc-500 tracking-[0.2em] uppercase">lifepilot.ai · SECURE</span>
+                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-950/80 border border-white/[0.04] backdrop-blur-xl">
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
+                  <span className="text-[9px] font-mono text-zinc-500 tracking-[0.22em] uppercase">LIFEPILOT.AI · SYSTEM SECURED</span>
                 </div>
-                <div className="flex items-center gap-1.5">
-                  <Brain className="w-3.5 h-3.5 text-violet-400" />
-                  <span className="text-[10px] font-mono text-zinc-500 tracking-wider">AI ACTIVE</span>
+                <div className="flex items-center gap-2">
+                  <Brain className="w-3.5 h-3.5 text-indigo-400/80" />
+                  <span className="text-[9px] font-mono text-zinc-500 tracking-widest uppercase">COGNITIVE ACTIVE</span>
                 </div>
               </div>
 
-              {/* Content grid */}
+              {/* Inside Dashboard Content grid */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-0 divide-y md:divide-y-0 md:divide-x divide-white/[0.04]">
                 
-                {/* Left — live stats */}
-                <div className="p-6 space-y-5">
-                  <div className="text-[10px] font-mono text-zinc-600 tracking-[0.25em] uppercase mb-4">Live Metrics</div>
+                {/* Left Area — dynamic indicators */}
+                <div className="p-8 space-y-6 text-left" style={{ transform: "translateZ(30px)" }}>
+                  <div className="text-[9px] font-mono text-zinc-500 tracking-[0.25em] uppercase mb-4">LIVE SYSTEM STATS</div>
                   {liveStats.map((stat, i) => (
                     <motion.div
                       key={i}
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.8 + i * 0.1 }}
-                      className="flex items-center justify-between group"
+                      className="flex items-center justify-between group p-2.5 rounded-lg border border-transparent hover:border-white/[0.03] hover:bg-white/[0.01] transition-all"
                     >
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-7 h-7 rounded-lg bg-white/[0.03] border border-white/[0.05] flex items-center justify-center group-hover:border-white/10 transition-colors">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-lg bg-white/[0.02] border border-white/[0.05] flex items-center justify-center transition-all group-hover:border-indigo-500/20 group-hover:bg-indigo-500/5">
                           <stat.icon className={`w-3.5 h-3.5 ${stat.color}`} />
                         </div>
-                        <span className="text-xs text-zinc-500 font-mono">{stat.label}</span>
+                        <span className="text-[11px] text-zinc-400 font-mono tracking-wider">{stat.label}</span>
                       </div>
-                      <span className={`text-sm font-mono font-semibold ${stat.color}`}>{stat.value}</span>
+                      <span className={`text-xs font-mono font-semibold ${stat.color}`}>{stat.value}</span>
                     </motion.div>
                   ))}
                 </div>
 
-                {/* Middle — focus chart */}
-                <div className="p-6 col-span-1 md:col-span-2">
+                {/* Right Area — custom authentic graph visualizer */}
+                <div className="p-8 col-span-1 md:col-span-2 text-left" style={{ transform: "translateZ(40px)" }}>
                   <div className="flex items-center justify-between mb-6">
                     <div>
-                      <div className="text-[10px] font-mono text-zinc-600 tracking-[0.25em] uppercase">Focus Path Today</div>
-                      <div className="text-base font-medium text-white mt-1">Deep Work Progress</div>
+                      <div className="text-[9px] font-mono text-zinc-500 tracking-[0.25em] uppercase">COGNITIVE PATHWAY</div>
+                      <div className="text-base font-light text-zinc-200 mt-1">Deep Work Distribution</div>
                     </div>
-                    <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
-                      <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      <span className="text-[10px] font-mono text-emerald-400 tracking-wider">HIGH FOCUS</span>
+                    <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20">
+                      <div className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
+                      <span className="text-[9px] font-mono text-indigo-400 tracking-wider">HARMONY</span>
                     </div>
                   </div>
 
-                  {/* Animated SVG chart */}
-                  <div className="relative h-32 w-full mb-4">
-                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 600 120" preserveAspectRatio="none">
+                  {/* Overlapping premium curves with coordinate labels */}
+                  <div className="relative h-36 w-full mb-6 bg-zinc-950/20 rounded-lg p-2 border border-white/[0.02]">
+                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 600 140" preserveAspectRatio="none">
                       <defs>
-                        <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stopColor="rgba(139,92,246,0.4)" />
-                          <stop offset="100%" stopColor="rgba(139,92,246,0)" />
+                        <linearGradient id="curve1" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stopColor="rgba(91,110,245,0.22)" />
+                          <stop offset="100%" stopColor="rgba(91,110,245,0)" />
                         </linearGradient>
-                        <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
-                          <stop offset="0%" stopColor="#6d28d9" />
-                          <stop offset="50%" stopColor="#3b82f6" />
-                          <stop offset="100%" stopColor="#8b5cf6" />
+                        <linearGradient id="curve2" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stopColor="rgba(14,165,233,0.12)" />
+                          <stop offset="100%" stopColor="rgba(14,165,233,0)" />
                         </linearGradient>
-                        <filter id="glow">
-                          <feGaussianBlur stdDeviation="2" result="blur" />
-                          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-                        </filter>
+                        <linearGradient id="strokeGrad" x1="0" y1="0" x2="1" y2="0">
+                          <stop offset="0%" stopColor="#4f46e5" />
+                          <stop offset="60%" stopColor="#0ea5e9" />
+                          <stop offset="100%" stopColor="#818cf8" />
+                        </linearGradient>
                       </defs>
-                      {/* Fill area */}
+                      
+                      {/* Grid Guide lines */}
+                      <line x1="0" y1="35" x2="600" y2="35" stroke="rgba(255,255,255,0.02)" strokeDasharray="3 6" />
+                      <line x1="0" y1="70" x2="600" y2="70" stroke="rgba(255,255,255,0.02)" strokeDasharray="3 6" />
+                      <line x1="0" y1="105" x2="600" y2="105" stroke="rgba(255,255,255,0.02)" strokeDasharray="3 6" />
+
+                      {/* Overlapping back area */}
+                      <path d="M 0 130 C 120 120, 200 80, 300 100 C 400 120, 480 50, 600 20 L 600 140 L 0 140 Z" fill="url(#curve2)" />
+                      
+                      {/* Interactive dynamic front path */}
                       <motion.path
-                        d="M 0 110 C 80 110, 140 85, 200 65 C 260 45, 310 30, 380 22 C 430 16, 500 12, 600 8 L 600 120 L 0 120 Z"
-                        fill="url(#chartGrad)"
+                        d="M 0 125 C 80 120, 160 70, 240 65 C 320 60, 400 25, 480 32 C 540 37, 570 12, 600 10 L 600 140 L 0 140 Z"
+                        fill="url(#curve1)"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 1.5, delay: 0.9 }}
+                        transition={{ duration: 1.4 }}
                       />
-                      {/* Line */}
+                      
+                      {/* Beautiful glowing stroke lines */}
                       <motion.path
-                        d="M 0 110 C 80 110, 140 85, 200 65 C 260 45, 310 30, 380 22 C 430 16, 500 12, 600 8"
+                        d="M 0 125 C 80 120, 160 70, 240 65 C 320 60, 400 25, 480 32 C 540 37, 570 12, 600 10"
                         fill="none"
-                        stroke="url(#lineGrad)"
-                        strokeWidth="2"
+                        stroke="url(#strokeGrad)"
+                        strokeWidth="2.5"
                         strokeLinecap="round"
-                        filter="url(#glow)"
-                        initial={{ pathLength: 0, opacity: 0 }}
-                        animate={{ pathLength: 1, opacity: 1 }}
-                        transition={{ duration: 2, delay: 0.7, ease: "easeOut" }}
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: 1 }}
+                        transition={{ duration: 2.2, ease: "easeOut" }}
                       />
-                      {/* Endpoint dot */}
-                      <motion.circle
-                        cx="600" cy="8" r="4"
-                        fill="#8b5cf6"
-                        filter="url(#glow)"
-                        initial={{ scale: 0, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{ delay: 2.5 }}
-                      />
-                      <motion.circle
-                        cx="600" cy="8" r="8"
-                        fill="rgba(139,92,246,0.2)"
-                        initial={{ scale: 0, opacity: 0 }}
-                        animate={{ scale: [0, 1.5, 1], opacity: [0, 0.8, 0.4] }}
-                        transition={{ delay: 2.5, duration: 0.6 }}
-                      />
+
+                      {/* Interactive Dot indicators */}
+                      {[{ x: 240, y: 65, tag: "Focus Boost" }, { x: 480, y: 32, tag: "Energy Peak" }].map((dot, idx) => (
+                        <g key={idx} className="cursor-pointer" onMouseEnter={() => setHoveredNode(dot.tag)} onMouseLeave={() => setHoveredNode(null)}>
+                          <circle cx={dot.x} cy={dot.y} r="5" fill="#818cf8" stroke="#060608" strokeWidth="2" />
+                          <circle cx={dot.x} cy={dot.y} r="10" fill="rgba(129,140,248,0.2)" className="hover:scale-150 transition-transform duration-200" />
+                        </g>
+                      ))}
                     </svg>
-                    {/* X-axis labels */}
-                    <div className="absolute bottom-0 left-0 right-0 flex justify-between text-[9px] font-mono text-zinc-600">
-                      <span>6AM</span><span>9AM</span><span>12PM</span><span>3PM</span><span>Now</span>
+
+                    {/* Interactive overlay tooltip */}
+                    <AnimatePresence>
+                      {hoveredNode && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 5 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 5 }}
+                          className="absolute bg-zinc-950/90 border border-white/[0.08] px-3 py-1.5 rounded-lg text-[9px] font-mono text-zinc-300 tracking-wider pointer-events-none"
+                          style={{
+                            left: hoveredNode === "Focus Boost" ? "35%" : "75%",
+                            top: "10%"
+                          }}
+                        >
+                          {hoveredNode} detected
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+
+                    {/* Graph timeline */}
+                    <div className="absolute bottom-1 left-3 right-3 flex justify-between text-[9px] font-mono text-zinc-600">
+                      <span>06:00</span><span>10:00</span><span>14:00</span><span>18:00</span><span>NOW</span>
                     </div>
                   </div>
 
-                  {/* Progress bars */}
-                  <div className="grid grid-cols-3 gap-3 pt-4 border-t border-white/[0.04]">
+                  {/* High-end metrics layout */}
+                  <div className="grid grid-cols-3 gap-6 pt-5 border-t border-white/[0.03]">
                     {[
-                      { label: "Habits Done", pct: 78, color: "bg-violet-500" },
-                      { label: "Focus Score", pct: 94, color: "bg-blue-500" },
-                      { label: "Energy", pct: 85, color: "bg-emerald-500" },
+                      { label: "Optimal Focus", pct: 94, color: "bg-indigo-500" },
+                      { label: "Energy Stability", pct: 86, color: "bg-cyan-500" },
+                      { label: "Execution Index", pct: 72, color: "bg-sky-500" },
                     ].map((bar, i) => (
-                      <div key={i} className="space-y-1.5">
+                      <div key={i} className="space-y-2">
                         <div className="flex justify-between items-center">
-                          <span className="text-[9px] font-mono text-zinc-600 uppercase tracking-wider">{bar.label}</span>
-                          <span className="text-[9px] font-mono text-zinc-400">{bar.pct}%</span>
+                          <span className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest">{bar.label}</span>
+                          <span className="text-[10px] font-mono text-zinc-300">{bar.pct}%</span>
                         </div>
-                        <div className="h-1 bg-white/[0.04] rounded-full overflow-hidden">
+                        <div className="h-1 bg-white/[0.03] rounded-full overflow-hidden">
                           <motion.div
                             className={`h-full ${bar.color} rounded-full`}
                             initial={{ width: 0 }}
                             animate={{ width: `${bar.pct}%` }}
-                            transition={{ duration: 1.2, delay: 1 + i * 0.15, ease: "easeOut" }}
+                            transition={{ duration: 1.5, delay: 0.8 + i * 0.15, ease: "easeOut" }}
                           />
                         </div>
                       </div>
@@ -390,66 +464,61 @@ export default function LandingPage({ onJoinClick, onExploreDashboard }: Landing
                 </div>
               </div>
 
-              {/* Bottom bar */}
-              <div className="px-5 py-3 border-t border-white/[0.04] bg-white/[0.01] flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  {["FOCUS", "HABITS", "REVIEW", "JOURNAL"].map((tab, i) => (
-                    <span key={i} className={`text-[9px] font-mono tracking-[0.2em] uppercase cursor-pointer transition-colors ${i === 0 ? "text-violet-400 border-b border-violet-400" : "text-zinc-600 hover:text-zinc-400"}`}>
+              {/* Bottom bar with elegant tab layout */}
+              <div 
+                className="px-6 py-4 border-t border-white/[0.04] bg-white/[0.01] flex items-center justify-between"
+                style={{ transform: "translateZ(25px)" }}
+              >
+                <div className="flex items-center gap-4">
+                  {["SYSTEM INTERACTIVE", "TELEMETRY", "METRIC FEED"].map((tab, i) => (
+                    <span key={i} className={`text-[9px] font-mono tracking-[0.25em] uppercase transition-colors duration-300 cursor-pointer ${i === 0 ? "text-indigo-400" : "text-zinc-500 hover:text-zinc-300"}`}>
                       {tab}
                     </span>
                   ))}
                 </div>
-                <div className="flex items-center gap-1.5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse" />
-                  <span className="text-[9px] font-mono text-zinc-600 tracking-widest">SYSTEM ACTIVE</span>
+                <div className="flex items-center gap-2">
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+                  </span>
+                  <span className="text-[9px] font-mono text-zinc-500 tracking-[0.2em] uppercase">SYSTEM PROTOCOL 1.04 READY</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Elegant Side Telemetry Widgets */}
+            {/* Custom high-fidelity dynamic side badges */}
             <motion.div
-              initial={{ opacity: 0, x: -16 }}
+              initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute -left-6 md:-left-16 top-1/4 hidden lg:flex items-center gap-3 bg-[#0C0C12]/95 border border-white/[0.07] backdrop-blur-xl px-4 py-3 rounded-xl shadow-2xl"
+              transition={{ delay: 1.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute -left-6 md:-left-16 top-1/4 hidden lg:flex items-center gap-3 bg-[#0c0c12]/95 border border-white/[0.08] backdrop-blur-3xl px-4.5 py-3.5 rounded-xl shadow-2xl"
+              style={{ transform: "translateZ(50px)" }}
             >
-              <div className="w-7 h-7 rounded bg-accent/10 border border-accent/20 flex items-center justify-center">
-                <Brain className="w-4 h-4 text-accent" />
+              <div className="w-8 h-8 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center">
+                <Brain className="w-4 h-4 text-indigo-400" />
               </div>
-              <div>
-                <div className="text-[9px] font-mono text-zinc-500 uppercase tracking-wider">AI Coach</div>
-                <div className="text-xs font-semibold text-zinc-200">Plan formulated</div>
+              <div className="text-left">
+                <div className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest">AI Coach Persona</div>
+                <div className="text-[11px] font-semibold text-zinc-200 font-mono">Ora Zen Mode Active</div>
               </div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 16 }}
+              initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute -right-6 md:-right-16 bottom-1/3 hidden lg:flex items-center gap-3 bg-[#0C0C12]/95 border border-white/[0.07] backdrop-blur-xl px-4 py-3 rounded-xl shadow-2xl"
+              transition={{ delay: 1.4, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute -right-6 md:-right-16 bottom-1/4 hidden lg:flex items-center gap-3 bg-[#0c0c12]/95 border border-white/[0.08] backdrop-blur-3xl px-4.5 py-3.5 rounded-xl shadow-2xl"
+              style={{ transform: "translateZ(50px)" }}
             >
-              <div className="w-7 h-7 rounded bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
-                <Zap className="w-4 h-4 text-emerald-400" />
+              <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
+                <Zap className="w-4 h-4 text-amber-400" />
               </div>
-              <div>
-                <div className="text-[9px] font-mono text-zinc-500 uppercase tracking-wider">Telemetry XP</div>
-                <div className="text-xs font-semibold text-emerald-400">+150 Points</div>
+              <div className="text-left">
+                <div className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest">Performance Tier</div>
+                <div className="text-[11px] font-semibold text-amber-400 font-mono">Mastery Elite (+15% focus)</div>
               </div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.6, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute -bottom-5 left-1/2 -translate-x-1/2 hidden md:flex items-center gap-6 bg-[#0C0C12]/95 border border-white/[0.07] backdrop-blur-xl px-6 py-3 rounded-full shadow-2xl"
-            >
-              {["Deep Focus", "Habit Streaks", "AI Coaching"].map((item, i) => (
-                <div key={i} className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-accent" />
-                  <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest">{item}</span>
-                </div>
-              ))}
-            </motion.div>
           </motion.div>
 
         </motion.div>
