@@ -236,8 +236,8 @@ export default function LifeMap() {
           className="spotlight-card rounded-2xl p-6 sm:p-8 lg:col-span-2 flex flex-col justify-between relative min-h-[480px] overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.85)]"
         >
           
-          {/* Symmetrical connected lines */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
+          {/* Symmetrical connected lines (Hidden on mobile) */}
+          <svg className="hidden sm:block absolute inset-0 w-full h-full pointer-events-none z-0">
             {nodes.map((node) => {
               return node.linkedNodes.map((targetId) => {
                 const targetNode = nodes.find(n => n.id === targetId);
@@ -277,7 +277,8 @@ export default function LifeMap() {
             Interactive Balance Map (Select a category to inspect):
           </div>
 
-          <div className="relative w-full h-[320px] sm:h-[350px] z-10">
+          {/* Desktop/Tablet Constellation View */}
+          <div className="hidden sm:block relative w-full h-[320px] sm:h-[350px] z-10">
             {nodes.map((node) => {
               const IconComp = node.icon;
               const isSelected = selectedNodeId === node.id;
@@ -325,6 +326,41 @@ export default function LifeMap() {
                       LINK
                     </span>
                   )}
+                </motion.button>
+              );
+            })}
+          </div>
+
+          {/* Mobile Grid View (Zero Overlapping, Perfectly Aligned!) */}
+          <div className="block sm:hidden grid grid-cols-2 gap-3 z-10">
+            {nodes.map((node) => {
+              const IconComp = node.icon;
+              const isSelected = selectedNodeId === node.id;
+              const isLinkedToSelected = selectedNode.linkedNodes.includes(node.id);
+              
+              return (
+                <motion.button
+                  id={`btn-lifemap-node-mobile-${node.id}`}
+                  key={node.id}
+                  onClick={() => setSelectedNodeId(node.id)}
+                  whileTap={{ scale: 0.96 }}
+                  className={`p-4 rounded-xl border cursor-pointer flex flex-col items-center justify-center transition-all ${
+                    isSelected 
+                      ? "bg-[#141419]/95 border-accent/60 text-accent shadow-[0_0_15px_rgba(91,110,245,0.15)]" 
+                      : isLinkedToSelected
+                      ? "bg-[#0C0C10]/95 border-accent/20 text-white"
+                      : "bg-[#09090C]/90 border-white/[0.03]"
+                  }`}
+                >
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-1.5 border transition-all ${
+                    isSelected 
+                      ? "bg-accent/10 border-accent/30 text-accent" 
+                      : "bg-white/[0.02] border-white/[0.04] text-zinc-400"
+                  }`}>
+                    <IconComp className="w-4 h-4" />
+                  </div>
+                  <h4 className="text-xs font-semibold text-zinc-200 tracking-tight text-center">{node.name}</h4>
+                  <div className="text-xs font-mono text-zinc-500 mt-0.5">{node.score}%</div>
                 </motion.button>
               );
             })}
