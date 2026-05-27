@@ -132,12 +132,12 @@ export default function Navbar({ activePage, setActivePage, isLoggedIn, onLogout
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ type: "spring", stiffness: 220, damping: 28 }}
-            className="fixed top-16 sm:top-20 left-1/2 -translate-x-1/2 z-40 w-[95%] sm:w-[92%] px-2 sm:px-0 md:hidden"
+            className="fixed top-18 sm:top-22 left-1/2 -translate-x-1/2 z-40 w-[95%] sm:w-[92%] px-2 sm:px-0 md:hidden"
           >
-            <div className="p-3 sm:p-5 rounded-2xl shadow-[0_30px_70px_rgba(0,0,0,0.95)] flex flex-col gap-2 relative overflow-hidden bg-[#0A0A0EF0] backdrop-blur-2xl border border-white/[0.06] max-h-[70vh] sm:max-h-[80vh] overflow-y-auto">
+            <div className="p-4 sm:p-5 rounded-2xl shadow-[0_30px_70px_rgba(0,0,0,0.95)] flex flex-col gap-2 relative overflow-hidden bg-[#0A0A0EF2] backdrop-blur-2xl border border-white/[0.06] max-h-[75vh] sm:max-h-[82vh] overflow-y-auto">
               <div className="text-sm font-mono tracking-[0.2em] text-zinc-500 mb-3 px-2 uppercase font-semibold">SYSTEM STATUS</div>
               
-               <div className="flex flex-col gap-1.5">
+               <div className="flex flex-col gap-1.5 pb-4">
                 {navItems.map((item) => {
                   const IconComp = item.icon;
                   const isActive = activePage === item.id;
@@ -149,13 +149,13 @@ export default function Navbar({ activePage, setActivePage, isLoggedIn, onLogout
                         setActivePage(item.id);
                         setMobileMenuOpen(false);
                       }}
-                      className={`w-full px-3 sm:px-4 py-2.5 text-sm sm:text-base font-normal rounded-xl flex items-center gap-2.5 sm:gap-3.5 transition-all cursor-pointer ${
+                      className={`w-full px-4 py-3 text-sm sm:text-base font-normal rounded-xl flex items-center gap-3.5 transition-all cursor-pointer ${
                         isActive 
-                          ? "bg-white/[0.03] border-l-2 border-white text-white font-medium" 
-                          : "text-zinc-400 hover:text-white hover:bg-white/[0.01]"
+                          ? "bg-white/[0.04] text-white font-medium shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] border border-indigo-500/20" 
+                          : "text-zinc-400 hover:text-white hover:bg-white/[0.01] border border-transparent"
                       }`}
                     >
-                      <IconComp className={`w-3.5 h-3.5 ${isActive ? "text-white" : "text-zinc-500"}`} />
+                      <IconComp className={`w-3.5 h-3.5 ${isActive ? "text-indigo-400" : "text-zinc-500"}`} />
                       <span className="flex-1 text-left">{item.label}</span>
                       {!isLoggedIn && item.id !== "home" && (
                         <Lock className="w-3.5 h-3.5 text-zinc-600 mr-1" />
@@ -166,18 +166,18 @@ export default function Navbar({ activePage, setActivePage, isLoggedIn, onLogout
               </div>
 
               {/* Mobile Auth button toggle */}
-              <div className="mt-4 pt-4 border-t border-white/[0.04]">
+              <div className="mt-2 pt-4 border-t border-white/[0.04] pb-6">
                 {isLoggedIn ? (
                   <button
                     onClick={() => { onLogout(); setMobileMenuOpen(false); }}
-                    className="w-full py-2.5 rounded-full bg-transparent text-zinc-400 text-sm border border-white/[0.04]"
+                    className="w-full py-2.5 rounded-xl bg-transparent text-zinc-400 text-sm border border-white/[0.04]"
                   >
                     Disconnect Profile
                   </button>
                 ) : (
                   <button
                     onClick={() => { onLoginClick(); setMobileMenuOpen(false); }}
-                    className="w-full py-2.5 rounded-full bg-zinc-100 text-[#09090B] text-sm font-semibold"
+                    className="w-full py-2.5 rounded-xl bg-zinc-100 text-[#09090B] text-sm font-semibold"
                   >
                     Sync Credentials
                   </button>
