@@ -183,9 +183,9 @@ export default function LandingPage({ onJoinClick, onExploreDashboard }: Landing
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(6,6,10,0.98)_100%)]" />
       </div>
 
-      {/* ── HERO SECTION (Perfect viewport-height fold) ── */}
-      <section ref={heroRef} id="hero-showcase" className="relative min-h-[calc(100vh-96px)] flex items-center justify-center px-4 sm:px-6 md:px-8 z-10 max-w-7xl mx-auto w-full">
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="flex flex-col items-center text-center justify-center w-full py-8">
+      {/* ── HERO SECTION (Covers Entire Screen Viewport Perfectly) ── */}
+      <section ref={heroRef} id="hero-showcase" className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 z-10 max-w-7xl mx-auto w-full pt-20">
+        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="flex flex-col items-center text-center justify-center w-full py-12">
 
           {/* Luxury launch badge */}
           <motion.div
