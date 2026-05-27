@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { 
   StyleSheet, 
   View, 
-  SafeAreaView, 
   StatusBar, 
   ActivityIndicator, 
   Text, 
@@ -10,7 +9,7 @@ import {
 } from 'react-native';
 import { WebView } from 'react-native-webview';
 
-// Enter your active Render deployment endpoint below
+// Active Render deployment endpoint
 const LIVE_URL = "https://lifepilot-ai.onrender.com";
 
 export default function App() {
@@ -27,8 +26,8 @@ export default function App() {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor="#06060A" />
+    <View style={styles.container}>
+      <StatusBar barStyle="light-content" backgroundColor="#06060A" translucent={false} />
       
       <View style={styles.content}>
         <WebView
@@ -46,7 +45,7 @@ export default function App() {
           javaScriptEnabled={true}
           scalesPageToFit={true}
           startInLoadingState={true}
-          renderLoading={() => null} // Handled by custom native loader below
+          renderLoading={() => null} 
         />
 
         {/* Dynamic Premium Dark Loader */}
@@ -70,7 +69,7 @@ export default function App() {
           </View>
         )}
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -78,10 +77,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#06060A',
+    paddingTop: StatusBar.currentHeight || 0, // Prevent overlapping
   },
   content: {
     flex: 1,
     position: 'relative',
+    backgroundColor: '#06060A',
   },
   webview: {
     flex: 1,
@@ -96,7 +97,6 @@ const styles = StyleSheet.create({
   },
   loaderText: {
     color: '#71717A',
-    fontFamily: 'System',
     fontSize: 12,
     letterSpacing: 2,
     textTransform: 'uppercase',
@@ -112,14 +112,12 @@ const styles = StyleSheet.create({
   },
   errorTitle: {
     color: '#F0F0F5',
-    fontFamily: 'System',
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 8,
   },
   errorSubtitle: {
     color: '#71717A',
-    fontFamily: 'System',
     fontSize: 13,
     textAlign: 'center',
     lineHeight: 18,
@@ -133,7 +131,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#06060A',
-    fontFamily: 'System',
     fontSize: 13,
     fontWeight: '600',
     letterSpacing: 0.5,
