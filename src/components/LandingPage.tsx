@@ -246,7 +246,7 @@ export default function LandingPage({ onJoinClick, onExploreDashboard }: Landing
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.45 }}
-            className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-lg mb-20 px-4"
+            className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-lg mb-12 px-4"
           >
             {/* Primary CTA with Premium Shine Effect */}
             <button
@@ -272,14 +272,19 @@ export default function LandingPage({ onJoinClick, onExploreDashboard }: Landing
             </button>
           </motion.div>
 
-          {/* ── PREMIUM INTERACTIVE 3D HERO MOCKUP ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 60, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.55 }}
-            className="w-full max-w-5xl relative cursor-pointer"
-            style={{ perspective: 1000 }}
-          >
+        </motion.div>
+      </section>
+
+      {/* ── PREMIUM INTERACTIVE 3D HERO MOCKUP (Scroll-Revealed Segment) ── */}
+      <section className="relative pb-24 px-4 sm:px-6 md:px-8 z-10 max-w-5xl mx-auto w-full text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 80, scale: 0.96 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: "-120px" }}
+          transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+          className="relative cursor-pointer"
+          style={{ perspective: 1000 }}
+        >
             {/* dynamic shifting ambient light behind card */}
             <div 
               className="absolute -inset-10 bg-gradient-to-tr from-indigo-500/10 via-purple-500/5 to-transparent rounded-3xl blur-3xl pointer-events-none transition-all duration-300"
@@ -520,8 +525,6 @@ export default function LandingPage({ onJoinClick, onExploreDashboard }: Landing
             </motion.div>
 
           </motion.div>
-
-        </motion.div>
       </section>
 
       {/* ── ANIMATED METRICS STRIP ── */}
