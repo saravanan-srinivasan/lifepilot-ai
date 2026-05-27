@@ -14,9 +14,6 @@
         "backgroundColor": "#06060A",
         "foregroundImage": "./assets/icon.png"
       }
-    },
-    "web": {
-      "favicon": "./assets/icon.png"
     }
   }
 }
