@@ -276,12 +276,12 @@ export default function LandingPage({ onJoinClick, onExploreDashboard }: Landing
       </section>
 
       {/* ── PREMIUM INTERACTIVE 3D HERO MOCKUP (Scroll-Revealed Segment) ── */}
-      <section className="relative pb-24 px-4 sm:px-6 md:px-8 z-10 max-w-5xl mx-auto w-full text-center">
+      <section className="relative mt-36 sm:mt-48 pb-24 px-4 sm:px-6 md:px-8 z-10 max-w-5xl mx-auto w-full text-center">
         <motion.div
-          initial={{ opacity: 0, y: 80, scale: 0.96 }}
+          initial={{ opacity: 0, y: 110, scale: 0.94 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, margin: "-120px" }}
-          transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: false, amount: 0.1 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="relative cursor-pointer"
           style={{ perspective: 1000 }}
         >
@@ -488,39 +488,6 @@ export default function LandingPage({ onJoinClick, onExploreDashboard }: Landing
                   </span>
                   <span className="text-[9px] font-mono text-zinc-500 tracking-[0.2em] uppercase">SYSTEM PROTOCOL 1.04 READY</span>
                 </div>
-              </div>
-            </motion.div>
-
-            {/* Custom high-fidelity dynamic side badges */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute -left-6 md:-left-16 top-1/4 hidden lg:flex items-center gap-3 bg-[#0c0c12]/95 border border-white/[0.08] backdrop-blur-3xl px-4.5 py-3.5 rounded-xl shadow-2xl"
-              style={{ transform: "translateZ(50px)" }}
-            >
-              <div className="w-8 h-8 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center">
-                <Brain className="w-4 h-4 text-indigo-400" />
-              </div>
-              <div className="text-left">
-                <div className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest">AI Coach Persona</div>
-                <div className="text-[11px] font-semibold text-zinc-200 font-mono">Ora Zen Mode Active</div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.4, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute -right-6 md:-right-16 bottom-1/4 hidden lg:flex items-center gap-3 bg-[#0c0c12]/95 border border-white/[0.08] backdrop-blur-3xl px-4.5 py-3.5 rounded-xl shadow-2xl"
-              style={{ transform: "translateZ(50px)" }}
-            >
-              <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
-                <Zap className="w-4 h-4 text-amber-400" />
-              </div>
-              <div className="text-left">
-                <div className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest">Performance Tier</div>
-                <div className="text-[11px] font-semibold text-amber-400 font-mono">Mastery Elite (+15% focus)</div>
               </div>
             </motion.div>
 
