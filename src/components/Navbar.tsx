@@ -51,8 +51,9 @@ export default function Navbar({ activePage, setActivePage, isLoggedIn, onLogout
             className="flex items-center gap-3 cursor-pointer group active:scale-95 transition-transform"
             onClick={() => { setActivePage("home"); setMobileMenuOpen(false); }}
           >
-            <div className="w-7 h-7 md:w-8 md:h-8 rounded bg-white/[0.03] border border-white/[0.10] flex items-center justify-center transition-colors group-hover:border-accent/40">
-              <span className="text-zinc-200 font-mono font-semibold text-xs md:text-sm tracking-tight">LP</span>
+            <div className="relative w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden border border-indigo-500/30 shadow-[0_0_12px_rgba(91,110,245,0.2)] bg-gradient-to-br from-indigo-950/80 to-[#0A0A0E]">
+              <span className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(91,110,245,0.25)_0%,transparent_100%)] opacity-80" />
+              <Compass className="w-4 h-4 text-indigo-400 animate-[spin_20s_linear_infinite]" />
             </div>
             <span className="font-serif italic font-normal text-lg md:text-xl tracking-tight text-white hidden sm:inline select-none">
               LifePilot

@@ -818,8 +818,9 @@ export default function LandingPage({ onJoinClick, onExploreDashboard }: Landing
       <footer className="border-t border-white/[0.04] py-8 md:py-10 px-4 sm:px-6 md:px-8 bg-[#060608] text-zinc-500 relative z-10 w-full">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-violet-600/30 to-blue-600/30 border border-violet-500/30 flex items-center justify-center">
-              <span className="text-xs text-violet-300 font-bold font-mono">LP</span>
+            <div className="relative w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden border border-indigo-500/30 shadow-[0_0_12px_rgba(91,110,245,0.2)] bg-gradient-to-br from-indigo-950/80 to-[#0A0A0E]">
+              <span className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(91,110,245,0.25)_0%,transparent_100%)] opacity-80" />
+              <Compass className="w-4 h-4 text-indigo-400 animate-[spin_20s_linear_infinite]" />
             </div>
             <span className="font-medium tracking-tight text-sm text-zinc-300">LifePilot</span>
           </div>
