@@ -80,7 +80,7 @@ export default function LifeMap() {
       progress: careerScore,
       linkedNodes: ["discipline", "learning", "finance"],
       x: 15,
-      y: 20,
+      y: 18,
       metrics: [
         { name: "Career Direction", val: `${Math.min(100, careerScore + 3)}%` },
         { name: "Learning Time", val: `+${(learningScore / 25).toFixed(1)}h / wk` },
@@ -96,7 +96,7 @@ export default function LifeMap() {
       progress: healthScore,
       linkedNodes: ["discipline", "mental"],
       x: 82,
-      y: 20,
+      y: 18,
       metrics: [
         { name: "Sleep Quality", val: `${healthScore}%` },
         { name: "Daily Rest Hours", val: `${(healthScore * 0.09).toFixed(1)} hours` },
@@ -112,7 +112,7 @@ export default function LifeMap() {
       progress: financeScore,
       linkedNodes: ["career", "discipline"],
       x: 15,
-      y: 80,
+      y: 82,
       metrics: [
         { name: "Savings Rate", val: `${Math.round(financeScore * 0.4)}%` },
         { name: "Monthly Savings", val: `+$${Math.round(financeScore * 6)} / month` },
@@ -144,7 +144,7 @@ export default function LifeMap() {
       progress: learningScore,
       linkedNodes: ["career", "discipline", "focus"],
       x: 48,
-      y: 15,
+      y: 18,
       metrics: [
         { name: "Reading Frequency", val: `${Math.round(learningScore / 20)} Days / wk` },
         { name: "Memory Retention", val: `${learningScore}%` },
@@ -160,7 +160,7 @@ export default function LifeMap() {
       progress: relationshipsScore,
       linkedNodes: ["mental"],
       x: 82,
-      y: 80,
+      y: 82,
       metrics: [
         { name: "Family & Friends Time", val: `${relationshipsScore}%` },
         { name: "Relationship Support", val: `${Math.min(100, relationshipsScore + 5)}%` },
@@ -176,7 +176,7 @@ export default function LifeMap() {
       progress: focusScore,
       linkedNodes: ["discipline", "learning", "mental"],
       x: 48,
-      y: 85,
+      y: 82,
       metrics: [
         { name: "Max Focus Time", val: `${Math.round(focusScore * 0.5)} minutes` },
         { name: "Distraction Block Rate", val: `${focusScore}%` },
@@ -278,7 +278,7 @@ export default function LifeMap() {
           </div>
 
           {/* Desktop/Tablet Constellation View */}
-          <div className="hidden sm:block relative w-full h-[320px] sm:h-[350px] z-10">
+          <div className="hidden sm:block relative w-full h-[450px] sm:h-[480px] md:h-[500px] lg:h-[520px] z-10">
             {nodes.map((node) => {
               const IconComp = node.icon;
               const isSelected = selectedNodeId === node.id;
